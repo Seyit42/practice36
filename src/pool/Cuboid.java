@@ -9,7 +9,7 @@ public class Cuboid extends Rectangle{
 	
 	Cuboid(double width, double length, double height) {
 		super(width, length);
-		this.height = height;
+		setHeight(height);
 		
 	}
 
@@ -18,12 +18,18 @@ public class Cuboid extends Rectangle{
 		System.out.println("rectangle.width= " + rectangle.getWidth());
 		System.out.println("rectangle.length= " + rectangle.getLength());
 		System.out.println("rectangle.area= " + rectangle.getArea());
-		Cuboid cuboid = new Cuboid(5,10,5);
+		Cuboid cuboid = new Cuboid(5,10,-5);
 		System.out.println("cuboid.width= " + cuboid.getWidth());
 		System.out.println("cuboid.length= " + cuboid.getLength());
 		System.out.println("cuboid.area= " + cuboid.getArea());
 		System.out.println("cuboid.height= " + cuboid.getHeight());
 		System.out.println("cuboid.volume= " + cuboid.getVolume());
+		int[] index = new int[8];
+		for(int x = 0; x < 8; x++) {
+			index[x] = x + x;
+			//index[x] += 2;
+			System.out.println(index[x]);
+		}
 		
 	}
 	
@@ -36,6 +42,9 @@ public class Cuboid extends Rectangle{
 	}
 
 	public void setHeight(double height) {
+		if(height < 0){
+			height = 0;
+		}
 		this.height = height;
 	}
 	
